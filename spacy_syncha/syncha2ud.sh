@@ -34,6 +34,8 @@ BEGIN{
         misc[i]="SpaceAfter=No";
       else
         misc[i]="SpaceAfter=No|Translit="a[8];
+      if(ne[i]!="")
+        misc[i]="NE="ne[i]"|"misc[i];
       upos[i]=xp[a[1]];
       xpos[i]=a[1];
       for(j=2;j<5;j++){
@@ -174,6 +176,9 @@ BEGIN{
     n++;
     form[n]=a[1];
     tags[n]=a[2];
+    ne[n]="";
+    if(i>2&&a[3]!="O")
+      ne[n]=a[3];
     chunk[n]=b;
     if(i>3){
       j=split(a[4],k);

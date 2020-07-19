@@ -7,7 +7,7 @@ SYNCHA2UD=os.path.join(PACKAGE_DIR,"syncha2ud.sh")
 
 import numpy
 from spacy.language import Language
-from spacy.symbols import LANG,NORM,LEMMA,POS,TAG,DEP,HEAD
+from spacy.symbols import LANG,NORM,LEMMA,POS,TAG,DEP,HEAD,ENT_IOB,ENT_TYPE
 from spacy.tokens import Doc,Span,Token
 from spacy.util import get_lang_class
 
@@ -51,6 +51,8 @@ class SynChaTokenizer(object):
     deps=[]
     spaces=[]
     norms=[]
+    ent_iobs=[]
+    ent_types=[]
     for t in u.split("\n"):
       if t=="" or t.startswith("#"):
         continue
@@ -71,9 +73,21 @@ class SynChaTokenizer(object):
       spaces.append(False if "SpaceAfter=No" in misc else True)
       i=misc.find("Translit=")
       norms.append(vs.add(form if i<0 else misc[i+9:]))
+      if misc.startswith("NE="):
+        i=misc.find("|")
+        if i<0:
+          i=len(misc)
+        if misc[3:4]=="B":
+          ent_iobs.append(3)
+        else:
+          ent_iobs.append(1)
+        ent_types.append(vs.add(misc[5:i]))
+      else:
+        ent_iobs.append(2)
+        ent_types.append(0)
     doc=Doc(self.vocab,words=words,spaces=spaces)
-    a=numpy.array(list(zip(lemmas,pos,tags,deps,heads,norms)),dtype="uint64")
-    doc.from_array([LEMMA,POS,TAG,DEP,HEAD,NORM],a)
+    a=numpy.array(list(zip(lemmas,pos,tags,deps,heads,norms,ent_iobs,ent_types)),dtype="uint64")
+    doc.from_array([LEMMA,POS,TAG,DEP,HEAD,NORM,ENT_IOB,ENT_TYPE],a)
     doc.is_tagged=True
     doc.is_parsed=True
     return doc
