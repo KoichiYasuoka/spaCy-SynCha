@@ -48,7 +48,6 @@ sudo make install
 
 ```sh
 cd /tmp
-rm -f cabocha.cookie
 curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU'
 curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` -o cabocha.tar.bz2
 tar xjf cabocha.tar.bz2
