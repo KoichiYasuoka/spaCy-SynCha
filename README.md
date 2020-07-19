@@ -29,12 +29,52 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 13 た た AUX 助動詞 12 aux タ O
 ```
 
-## Installation for Linux
+## Installation for Linux (Debian)
 
-Make sure to pre-install SynCha, CaboCha, and MeCab:
+1. Install MeCab and necessary packages
 
 ```sh
-pip install spacy_syncha
+sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make wget curl lp-solve
+cd /tmp
+wget -O crfpp.tar.gz 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ'
+tar xzf crfpp.tar.gz
+cd CRF++-0.58
+./configure --prefix=/usr
+make
+sudo make install
+```
+
+2. Install CaboCha
+
+```sh
+cd /tmp
+rm -f cabocha.cookie
+curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU'
+curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` -o cabocha.tar.bz2
+tar xjf cabocha.tar.bz2
+cd cabocha-0.69
+./configure --prefix=/usr --with-charset=UTF8
+make
+sudo make install
+```
+
+3. Install SynCha
+
+```sh
+cd /tmp
+wget -O syncha.tar.gz 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnBCaWs'
+tar xzf syncha.tar.gz
+sudo mkdir -p /usr/local/bin
+sudo mv syncha-0.3.1.1 /usr/local/syncha
+( echo '#! /bin/sh' ; echo 'exec /usr/local/syncha/syncha "$@"' ) > syncha
+chmod 755 syncha
+sudo mv syncha /usr/local/bin
+```
+
+4. Install spaCy-SynCha
+
+```sh
+pip3 install spacy_syncha
 ```
 
 ## Installation for Cygwin
