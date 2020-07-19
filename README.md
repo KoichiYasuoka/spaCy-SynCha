@@ -40,8 +40,7 @@ wget -O crfpp.tar.gz 'https://drive.google.com/uc?export=download&id=0B4y35FiV1w
 tar xzf crfpp.tar.gz
 cd CRF++-0.58
 ./configure --prefix=/usr
-make
-sudo make install
+make && sudo make install
 ```
 
 Second, install [CaboCha](https://taku910.github.io/cabocha/):
@@ -53,8 +52,7 @@ curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35Fi
 tar xjf cabocha.tar.bz2
 cd cabocha-0.69
 ./configure --prefix=/usr --with-charset=UTF8
-make
-sudo make install
+make && sudo make install
 ```
 
 Third, install [SynCha](https://sites.google.com/site/ryuiida/syncha):
