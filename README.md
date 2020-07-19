@@ -1,4 +1,4 @@
-[![Current PyPI packages](https://badge.fury.io/py/spacy_syncha.svg)](https://pypi.org/project/spacy_syncha/)
+[![Current PyPI packages](https://badge.fury.io/py/spacy-syncha.svg)](https://pypi.org/project/spacy-syncha/)
 
 # spaCy-SynCha
 
