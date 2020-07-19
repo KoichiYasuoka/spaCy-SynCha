@@ -33,7 +33,7 @@ BEGIN{
       if(j<8||a[8]==""||a[8]==form[i])
         misc[i]="SpaceAfter=No";
       else
-        misc[i]=sprintf("Translit=%s|SpaceAfter=No",a[8]);
+        misc[i]="SpaceAfter=No|Translit="a[8];
       upos[i]=xp[a[1]];
       xpos[i]=a[1];
       for(j=2;j<5;j++){
