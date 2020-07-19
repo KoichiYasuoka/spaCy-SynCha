@@ -31,7 +31,7 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 
 ## Installation for Linux (Debian)
 
-1. Install MeCab and necessary packages
+1. Install [MeCab](https://taku910.github.io/mecab/) and necessary packages
 
 ```sh
 sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make wget curl lp-solve
@@ -44,7 +44,7 @@ make
 sudo make install
 ```
 
-2. Install CaboCha
+2. Install [CaboCha](https://taku910.github.io/cabocha/)
 
 ```sh
 cd /tmp
@@ -57,7 +57,7 @@ make
 sudo make install
 ```
 
-3. Install SynCha
+3. Install [SynCha](https://sites.google.com/site/ryuiida/syncha)
 
 ```sh
 cd /tmp
