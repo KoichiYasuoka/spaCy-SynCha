@@ -1,0 +1,38 @@
+import setuptools
+import subprocess
+
+d=subprocess.check_output(["syncha","-h"])
+with open("README.md","r",encoding="utf-8") as r:
+  long_description=r.read()
+URL="https://github.com/KoichiYasuoka/spaCy-SynCha"
+
+setuptools.setup(
+  name="spacy_syncha",
+  version="0.1.0",
+  description="SynCha-CaboCha-MeCab wrapper for spaCy",
+  long_description=long_description,
+  long_description_content_type="text/markdown",
+  url=URL,
+  author="Koichi Yasuoka",
+  author_email="yasuoka@kanji.zinbun.kyoto-u.ac.jp",
+  license="MIT",
+  keywords="spacy nlp",
+  packages=setuptools.find.packages(),
+  install_requires=["spacy>=2.2.2"],
+  python_requires=">=3.6",
+  package_data={"spacy_syncha":["./*.sh"]},
+  classifiers=[
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Linguistic",
+    "Natural Language :: Japanese"
+  ],
+  project_urls={
+    "SynCha":"https://sites.google.com/site/ryuiida/syncha",
+    "CaboCha":"https://taku910.github.io/cabocha/",
+    "MeCab":"https://taku910.github.io/mecab/",
+    "Source":URL,
+    "Tracker":URL+"/issues"
+  }
+)
