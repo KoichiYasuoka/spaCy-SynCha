@@ -17,7 +17,7 @@ setuptools.setup(
   author_email="yasuoka@kanji.zinbun.kyoto-u.ac.jp",
   license="MIT",
   keywords="spacy nlp",
-  packages=setuptools.find.packages(),
+  packages=setuptools.find_packages(),
   install_requires=["spacy>=2.2.2"],
   python_requires=">=3.6",
   package_data={"spacy_syncha":["./*.sh"]},
