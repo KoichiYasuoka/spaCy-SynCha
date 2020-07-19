@@ -1,14 +1,12 @@
 import setuptools
-import subprocess
 
-d=subprocess.check_output(["syncha","-h"])
 with open("README.md","r",encoding="utf-8") as r:
   long_description=r.read()
 URL="https://github.com/KoichiYasuoka/spaCy-SynCha"
 
 setuptools.setup(
   name="spacy_syncha",
-  version="0.1.1",
+  version="0.1.2",
   description="SynCha-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
