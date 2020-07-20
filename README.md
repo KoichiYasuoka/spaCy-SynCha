@@ -88,11 +88,7 @@ And last, install spaCy-SynCha:
 pip3 install spacy_syncha --user
 ```
 
-## Installation for Linux (Ubuntu)
-
-Same as Debian.
-
-## Installation for Linux (Kali)
+## Installation for Linux (Ubuntu or Kali)
 
 Same as Debian.
 
