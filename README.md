@@ -68,8 +68,12 @@ sudo mv syncha /usr/local/bin
 And last, install spaCy-SynCha:
 
 ```sh
-pip3 install spacy_syncha
+pip3 install spacy_syncha --user
 ```
+
+## Installation for Linux (Ubuntu)
+
+Same as Debian.
 
 ## Installation for Cygwin
 
