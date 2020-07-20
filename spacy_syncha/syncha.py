@@ -37,7 +37,7 @@ class SynChaTokenizer(object):
   from_bytes=lambda self,*args,**kwargs:None
   def __init__(self,vocab):
     import subprocess
-    self.model=lambda s:subprocess.check_output([SYNCHA2UD],input=s,text=True)
+    self.model=lambda s:subprocess.check_output([SYNCHA2UD],input=s.encode("utf-8")).decode("utf-8")
     self.vocab=vocab
   def __call__(self,text):
     u=self.model(text) if text else ""
