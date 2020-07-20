@@ -34,6 +34,7 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
 
 ```sh
+sudo apt update
 sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make curl lp-solve
 cd /tmp
 curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
@@ -72,6 +73,10 @@ pip3 install spacy_syncha --user
 ```
 
 ## Installation for Linux (Ubuntu)
+
+Same as Debian.
+
+## Installation for Linux (Kali)
 
 Same as Debian.
 
