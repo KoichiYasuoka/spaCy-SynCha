@@ -34,10 +34,9 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
 
 ```sh
-sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make wget curl lp-solve
+sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make curl lp-solve
 cd /tmp
-wget -O crfpp.tar.gz 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ'
-tar xzf crfpp.tar.gz
+curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
 cd CRF++-0.58
 ./configure --prefix=/usr
 make && sudo make install
@@ -47,9 +46,8 @@ Second, install [CaboCha](https://taku910.github.io/cabocha/):
 
 ```sh
 cd /tmp
-curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU'
-curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` -o cabocha.tar.bz2
-tar xjf cabocha.tar.bz2
+curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU' > /dev/null
+curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` | tar xjf -
 cd cabocha-0.69
 ./configure --prefix=/usr --with-charset=UTF8
 make && sudo make install
@@ -59,8 +57,7 @@ Third, install [SynCha](https://sites.google.com/site/ryuiida/syncha):
 
 ```sh
 cd /tmp
-wget -O syncha.tar.gz 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnBCaWs'
-tar xzf syncha.tar.gz
+curl -L 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnBCaWs' | tar xzf -
 sudo mkdir -p /usr/local/bin
 sudo mv syncha-0.3.1.1 /usr/local/syncha
 ( echo '#! /bin/sh' ; echo 'exec /usr/local/syncha/syncha "$@"' ) > syncha
