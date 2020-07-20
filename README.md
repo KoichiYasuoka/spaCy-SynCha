@@ -73,7 +73,7 @@ pip3 install spacy_syncha
 
 ## Installation for Cygwin
 
-Make sure to get `python37-devel` `python37-pip` `python37-cython` `python37-numpy` `git` `gcc-g++` `perl`:
+Make sure to get `python37-devel` `python37-pip` `python37-cython` `python37-numpy` `git` `gcc-g++` `perl`, and then:
 
 ```sh
 pip3.7 install git+https://github.com/KoichiYasuoka/syncha-cygwin
