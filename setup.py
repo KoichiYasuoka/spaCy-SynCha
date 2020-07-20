@@ -6,7 +6,7 @@ URL="https://github.com/KoichiYasuoka/spaCy-SynCha"
 
 setuptools.setup(
   name="spacy_syncha",
-  version="0.2.6",
+  version="0.2.7",
   description="SynCha-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
@@ -16,7 +16,7 @@ setuptools.setup(
   license="MIT",
   keywords="spacy nlp",
   packages=setuptools.find_packages(),
-  install_requires=["spacy>=2.2.2"],
+  install_requires=["spacy>=2.2.2","deplacy>=1.3.9"],
   python_requires=">=3.6",
   package_data={"spacy_syncha":["./*.sh"]},
   classifiers=[

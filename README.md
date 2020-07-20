@@ -27,6 +27,22 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 11 に に ADP 助詞-格助詞-一般 10 case ニ O
 12 渡し 渡す VERB 動詞-自立 12 ROOT ワタシ O
 13 た た AUX 助動詞 12 aux タ O
+>>> import deplacy
+>>> deplacy.render(doc,Japanese=True)
+太郎 PROPN ═╗<══════════╗ nsubj(主語)
+は   ADP   <╝           ║ case(格表示)
+花子 PROPN ═╗<╗         ║ nsubj(主語)
+が   ADP   <╝ ║         ║ case(格表示)
+読ん VERB  ═══╝═╗═╗<╗   ║ acl(連体修飾節)
+で   CCONJ <════╝ ║ ║   ║ mark(標識)
+いる AUX   <══════╝ ║   ║ aux(動詞補助成分)
+本   NOUN  ═╗═══════╝<╗ ║ obj(目的語)
+を   ADP   <╝         ║ ║ case(格表示)
+次   NOUN  <╗         ║ ║ compound(複合)
+郎   NOUN  ═╝═╗<╗     ║ ║ iobj(間接目的語)
+に   ADP   <══╝ ║     ║ ║ case(格表示)
+渡し VERB  ═╗═══╝═════╝═╝ ROOT(親)
+た   AUX   <╝             aux(動詞補助成分)
 ```
 
 ## Installation for Linux (Debian)
