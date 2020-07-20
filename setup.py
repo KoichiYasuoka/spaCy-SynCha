@@ -1,17 +1,12 @@
 import setuptools
-import shutil
 
-if shutil.which("syncha"):
-  pass
-else:
-  raise OSError("syncha not found")
 with open("README.md","r",encoding="utf-8") as r:
   long_description=r.read()
 URL="https://github.com/KoichiYasuoka/spaCy-SynCha"
 
 setuptools.setup(
   name="spacy_syncha",
-  version="0.2.2",
+  version="0.2.3",
   description="SynCha-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
