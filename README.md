@@ -108,7 +108,7 @@ sudo yum install mecab mecab-devel mecab-ipadic
 cd /tmp
 curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
 cd CRF++-0.58
-./configure --prefix=/usr --libdir=`macab-config --libs-only-L`
+./configure --prefix=/usr --libdir=`mecab-config --libs-only-L`
 make && sudo make install
 ```
 
