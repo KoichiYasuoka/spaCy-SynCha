@@ -55,7 +55,7 @@ sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g+
 cd /tmp
 curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
 cd CRF++-0.58
-./configure --prefix=/usr
+./configure --prefix=/usr --libdir=`mecab-config --libs-only-L`
 make && sudo make install
 ```
 
@@ -66,7 +66,7 @@ cd /tmp
 curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU' > /dev/null
 curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` | tar xjf -
 cd cabocha-0.69
-./configure --prefix=/usr --with-charset=UTF8
+./configure --prefix=/usr --libdir=`mecab-config --libs-only-L` --with-charset=UTF8
 make && sudo make install
 ```
 
@@ -91,6 +91,24 @@ pip3 install spacy_syncha --user
 ## Installation for Linux (Ubuntu or Kali)
 
 Same as Debian.
+
+## Installation for Linux (CentOS)
+
+First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
+
+```sh
+sudo yum update
+sudo yum install python3-pip python3-devel gcc-c++ make curl bzip2 lpsolve epel-release
+sudo rpm -ivh https://packages.groonga.org/centos/latest/groonga-release-latest.noarch.rpm
+sudo yum install mecab mecab-devel mecab-ipadic
+cd /tmp
+curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
+cd CRF++-0.58
+./configure --prefix=/usr --libdir=`macab-config --libs-only-L`
+make && sudo make install
+```
+
+Second, third, and last are same as Debian.
 
 ## Installation for Cygwin
 
