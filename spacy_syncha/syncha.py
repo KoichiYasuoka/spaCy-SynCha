@@ -40,7 +40,7 @@ class SynChaTokenizer(object):
     self.model=lambda s:subprocess.check_output([SYNCHA2UD],input=s.encode("utf-8")).decode("utf-8")
     self.vocab=vocab
   def __call__(self,text):
-    t=text.replace("\r","").replace("(","（").replace(")","）")
+    t=text.replace("\r","").replace("(","（").replace(")","）").replace("[","［").replace("]","］").replace("{","｛").replace("}","｝")
     u=self.model(t) if t else ""
     vs=self.vocab.strings
     r=vs.add("ROOT")
