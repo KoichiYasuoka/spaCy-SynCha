@@ -1,4 +1,6 @@
 #! /bin/sh
+# "syncha2ud" for "spaCy-SynCha" by 安岡孝一
+
 cat ${1+"$@"} | syncha -n 0 | awk '
 BEGIN{
   xp["接頭辞"]=xp["接頭詞"]=xp["接尾辞"]="PART";

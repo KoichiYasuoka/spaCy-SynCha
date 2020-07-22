@@ -45,6 +45,12 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 た   AUX   <╝             aux(動詞補助成分)
 ```
 
+You can simply use `syncha2ud` on the command line to get [Universal Dependencies](https://universaldependencies.org/format.html):
+
+```sh
+echo 太郎は花子が読んでいる本を次郎に渡した | syncha2ud
+```
+
 ## Installation for Linux (Debian)
 
 First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
