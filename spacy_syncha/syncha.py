@@ -3,7 +3,7 @@
 
 import os
 PACKAGE_DIR=os.path.abspath(os.path.dirname(__file__))
-SYNCHA2UD=os.path.join(PACKAGE_DIR,"syncha2ud.sh")
+SYNCHA2UD=os.path.join(PACKAGE_DIR,"syncha2ud")
 
 import numpy
 from spacy.language import Language
