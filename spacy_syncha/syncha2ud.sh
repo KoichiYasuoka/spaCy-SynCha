@@ -81,6 +81,7 @@ BEGIN{
       }
     }
     for(i=1;i<=n;i++){
+      deps[i]="_";
       if(head[i]==0)
         deprel[i]="root";
       else if(upos[i]~/^(PUNCT|SYM)$/)
@@ -107,25 +108,30 @@ BEGIN{
         deprel[i]="dep";
         j=i-bhead[chunk[i]];
         if(j==0){
+          for(j=0;j<=b;j++)
+            d[j]="";
           x=id[chunk[i]];
           if(x!=-1){
-            y=chunk[head[i]];
-            if(upos[i]~/^(VERB|ADJ)$/){
-              if(x==ga[y])
-                deprel[i]="csubj";
-              else if(x==ni[y])
-                deprel[i]="advcl";
-              else if(x==o[y])
-                deprel[i]="ccomp";
-              else
-                x=-1;
+            for(j=0;j<=b;j++){
+              if(j==chunk[i])
+                continue;
+              if(upos[i]~/^(VERB|ADJ)$/){
+                if(x==ga[j])
+                  d[j]="csubj";
+                else if(x==ni[j])
+                  d[j]="advcl";
+                else if(x==o[j])
+                  d[j]="ccomp";
+              }
+              else if(x==ga[j])
+                d[j]="nsubj";
+              else if(x==ni[j])
+                d[j]="iobj";
+              else if(x==o[j])
+                d[j]="obj";
             }
-            else if(x==ga[y])
-              deprel[i]="nsubj";
-            else if(x==ni[y])
-              deprel[i]="iobj";
-            else if(x==o[y])
-              deprel[i]="obj";
+            if(d[chunk[head[i]]]!="")
+              deprel[i]=d[chunk[head[i]]];
             else
               x=-1;
           }
@@ -146,7 +152,19 @@ BEGIN{
               deprel[i]="det";
             else
               deprel[i]="nmod";
+            d[chunk[head[i]]]=deprel[i];
           }
+          x="";
+          for(j=0;j<=b;j++){
+            if(d[j]=="")
+              continue;
+            if(x=="")
+              x=sprintf("%d:%s",bhead[j],d[j]);
+            else
+              x=sprintf("%s|%d:%s",x,bhead[j],d[j]);
+          }
+          if(index(x,"|")>0)
+            deps[i]=x;
         }
         else if(j<0){
           if(upos[head[i]]~/^(VERB|ADJ)$/){
@@ -163,9 +181,11 @@ BEGIN{
             deprel[i]="mark";
         }
       }
+      if(deps[i]=="_")
+        deps[i]=sprintf("%d:%s",head[i],deprel[i]);
     }
     for(i=1;i<=n;i++)
-      printf("%d\t%s\t%s\t%s\t%s\t_\t%d\t%s\t_\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],head[i],deprel[i],misc[i]);
+      printf("%d\t%s\t%s\t%s\t%s\t_\t%d\t%s\t%s\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],head[i],deprel[i],deps[i],misc[i]);
     printf("\n");
     n=0;
   }
