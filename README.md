@@ -78,8 +78,7 @@ curl -L 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnB
 sudo mkdir -p /usr/local/bin
 sudo mv syncha-0.3.1.1 /usr/local/syncha
 ( echo '#! /bin/sh' ; echo 'exec /usr/local/syncha/syncha "$@"' ) > syncha
-chmod 755 syncha
-sudo mv syncha /usr/local/bin
+sudo install syncha /usr/local/bin
 ```
 
 And last, install spaCy-SynCha:
