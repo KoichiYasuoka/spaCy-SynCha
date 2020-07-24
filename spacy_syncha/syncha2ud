@@ -1,7 +1,18 @@
 #! /bin/sh
 # "syncha2ud" for "spaCy-SynCha" by 安岡孝一
 
-cat ${1+"$@"} | syncha -n 0 | awk '
+OPT='-n 0'
+case "$1" in
+-I) shift
+    if [ "$1" = 1 ]
+    then shift
+         OPT='-n -0 -I 1'
+    fi ;;
+-*) echo 'Usage: syncha2ud [-I 1] [file]' >&2
+    exit 0 ;;
+esac
+
+cat ${1+"$@"} | syncha $OPT | awk '
 BEGIN{
   xp["接頭辞"]=xp["接頭詞"]=xp["接尾辞"]="PART";
   xp["代名詞"]="PRON";
