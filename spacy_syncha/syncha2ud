@@ -64,6 +64,10 @@ BEGIN{
           upos[i]="NUM";
         else if(a[2]=="代名詞")
           upos[i]="PRON";
+        else if(a[2]=="形容動詞語幹"){
+          if(tags[i+1]~/^助動詞,/)
+            upos[i]="ADJ";
+        }
       }
       else if(a[1]=="助詞"){
         upos[i]="ADP";
