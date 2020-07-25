@@ -6,7 +6,7 @@ URL="https://github.com/KoichiYasuoka/spaCy-SynCha"
 
 setuptools.setup(
   name="spacy_syncha",
-  version="0.4.7",
+  version="0.4.8",
   description="SynCha-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
@@ -19,7 +19,7 @@ setuptools.setup(
   install_requires=["spacy>=2.2.2","deplacy>=1.3.9"],
   python_requires=">=3.6",
   package_data={"spacy_syncha":["./syncha2ud"]},
-  data_files=[("bin",["spacy_syncha/syncha2ud"])],
+  data_files=[("bin",["spacy_syncha/syncha2ud","spacy_syncha/unidic2ipadic"])],
   classifiers=[
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
