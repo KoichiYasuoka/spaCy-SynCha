@@ -69,7 +69,7 @@ BEGIN{
             upos[i]="ADJ";
         }
         else if(a[3]=="助動詞語幹")
-          upos[i]="AUX"
+          upos[i]="AUX";
       }
       else if(a[1]=="助詞"){
         upos[i]="ADP";
