@@ -68,6 +68,8 @@ BEGIN{
           if(tags[i+1]~/^助動詞,/)
             upos[i]="ADJ";
         }
+        else if(a[3]=="助動詞語幹")
+          upos[i]="AUX"
       }
       else if(a[1]=="助詞"){
         upos[i]="ADP";
