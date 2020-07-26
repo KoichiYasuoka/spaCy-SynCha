@@ -1,6 +1,5 @@
 #! /usr/bin/awk -f
 # "unidic2ipadic" for "spaCy-SynCha" by 安岡孝一
-# echo 石炭をば早や積み果てつ | mecab -d kindai | unidic2ipadic | cabocha -f 1 -n 1 -I 1 | syncha2ud -I 1
 BEGIN{
   u2i["名詞,普通名詞,一般,*"]="名詞,一般,*,*";
   u2i["名詞,普通名詞,サ変可能,*"]="名詞,サ変接続,*,*";
