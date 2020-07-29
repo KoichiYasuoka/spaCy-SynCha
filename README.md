@@ -56,7 +56,7 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 * `UniDic="wakan"`: Use [中世文語（説話・随筆）UniDic](https://unidic.ninjal.ac.jp/download_all#unidic_wakan).
 * `UniDic="wabun"`: Use [中古和文UniDic](https://unidic.ninjal.ac.jp/download_all#unidic_wabun).
 * `UniDic="manyo"`: Use [上代（万葉集）UniDic](https://unidic.ninjal.ac.jp/download_all#unidic_manyo).
-* `UniDic=None`: Use default IPADic.
+* `UniDic=None`: Use IPADic (default).
 
 You can simply use `syncha2ud` on the command line to get [Universal Dependencies](https://universaldependencies.org/format.html):
 
