@@ -207,8 +207,31 @@ BEGIN{
             deprel[i]="mark";
         }
       }
-      if(deps[i]=="_")
-        deps[i]=sprintf("%d:%s",head[i],deprel[i]);
+    }
+    for(i=1;i<=n;i++){
+      if(deprel[i]=="acl"&&upos[i]=="ADJ"){
+        for(j=1;j<i;j++){
+          if(head[j]==i)
+            break;
+        }
+        if(j==i)
+          deprel[i]="amod";
+      }
+      else if(deprel[i]=="cop"){
+        j=head[i];
+        if(deprel[j]=="obl")
+          deprel[j]="advcl";
+        else if(deprel[j]=="nmod")
+          deprel[j]="acl";
+        for(h=1;h<=n;h++){
+          if(head[h]==j){
+            if(deprel[h]=="acl")
+              deprel[h]="advcl";
+            else if(deprel[h]=="case")
+              deprel[h]="mark";
+          }
+        }
+      }
     }
     for(i=1;i<=n;i++)
       printf("%d\t%s\t%s\t%s\t%s\t_\t%d\t%s\t%s\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],head[i],deprel[i],deps[i],misc[i]);
