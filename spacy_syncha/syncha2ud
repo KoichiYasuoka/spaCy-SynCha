@@ -120,8 +120,15 @@ BEGIN{
       else if(upos[i]=="AUX"){
         if(upos[head[i]]~/^(VERB|ADJ)$/)
           deprel[i]="aux";
-        else
+        else{
           deprel[i]="cop";
+          for(j=head[i]+1;j<i;j++){
+            if(deprel[j]=="cop"){
+              deprel[i]="aux"
+              break;
+            }
+          }
+        }
       }
       else{
         deprel[i]="dep";
