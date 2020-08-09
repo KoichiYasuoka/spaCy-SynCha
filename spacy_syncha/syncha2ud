@@ -233,8 +233,11 @@ BEGIN{
         }
       }
     }
-    for(i=1;i<=n;i++)
+    for(i=1;i<=n;i++){
+      if(deps[i]=="_")
+        deps[i]=sprintf("%d:%s",head[i],deprel[i])
       printf("%d\t%s\t%s\t%s\t%s\t_\t%d\t%s\t%s\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],head[i],deprel[i],deps[i],misc[i]);
+    }
     printf("\n");
     n=0;
   }
