@@ -1,5 +1,5 @@
 #! /usr/bin/awk -f
-# "unidic2ipadic" for "spaCy-SynCha" by 安岡孝一
+# "unidic2ipadic" by 安岡孝一
 BEGIN{
   u2i["名詞,普通名詞,一般,*"]="名詞,一般,*,*";
   u2i["名詞,普通名詞,サ変可能,*"]="名詞,サ変接続,*,*";
@@ -66,6 +66,8 @@ BEGIN{
       lemma=substr(a[8],1,i-1);
     else
       lemma=a[8];
+    if(lemma==""||lemma=="*")
+      lemma=$1;
     i=index(a[6],"-");
     if(i>1)
       katsuyo=substr(a[6],1,i-1);
