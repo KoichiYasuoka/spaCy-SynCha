@@ -89,6 +89,19 @@ BEGIN{
       }
       if(upos[i]=="")
         upos[i]="X";
+      feats[i]="_";
+      if(a[6]~/未然/)
+        feats[i]="Mood=Pot";
+      else if(a[6]~/意志/)
+        feats[i]="Mood=Des";
+      else if(a[6]~/連用/)
+        feats[i]="VerbForm=Conv";
+      else if(a[6]~/(連体|体言接続)/)
+        feats[i]="VerbForm=Part";
+      else if(a[6]~/(仮定|已然)/)
+        feats[i]="Mood=Cnd";
+      else if(a[6]~/命令/)
+        feats[i]="Mood=Imp";
     }
     for(i=1;i<=n;i++){
       j=i-bhead[chunk[i]];
@@ -236,7 +249,7 @@ BEGIN{
     for(i=1;i<=n;i++){
       if(deps[i]=="_")
         deps[i]=sprintf("%d:%s",head[i],deprel[i])
-      printf("%d\t%s\t%s\t%s\t%s\t_\t%d\t%s\t%s\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],head[i],deprel[i],deps[i],misc[i]);
+      printf("%d\t%s\t%s\t%s\t%s\t%s\t%d\t%s\t%s\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],feats[i],head[i],deprel[i],deps[i],misc[i]);
     }
     printf("\n");
     n=0;
