@@ -64,8 +64,6 @@ You can simply use `syncha2ud` on the command line to get [Universal Dependencie
 echo 太郎は花子が読んでいる本を次郎に渡した | syncha2ud
 ```
 
-Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-SynCha/blob/master/spacy_syncha.ipynb) for Google Colaboratory.
-
 ## Installation for Linux (Debian)
 
 First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
@@ -142,6 +140,10 @@ Make sure to get `python37-devel` `python37-pip` `python37-cython` `python37-num
 pip3.7 install git+https://github.com/KoichiYasuoka/syncha-cygwin
 pip3.7 install spacy_syncha --no-build-isolation
 ```
+
+## Installation for Google Colaboratory
+
+Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-SynCha/blob/master/spacy_syncha.ipynb).
 
 ## References
 
