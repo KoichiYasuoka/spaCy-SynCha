@@ -61,6 +61,7 @@ class SynChaTokenizer(object):
     norms=[]
     ent_iobs=[]
     ent_types=[]
+    bunsetu=[]
     for t in u.split("\n"):
       if t=="" or t.startswith("#"):
         continue
@@ -81,23 +82,28 @@ class SynChaTokenizer(object):
       spaces.append(False if "SpaceAfter=No" in misc else True)
       i=misc.find("Translit=")
       norms.append(vs.add(form if i<0 else misc[i+9:]))
-      if misc.startswith("NE="):
-        i=misc.find("|")
-        if i<0:
-          i=len(misc)
-        if misc[3:4]=="B":
+      i=misc.find("NE=")
+      if i<0:
+        ent_iobs.append(2)
+        ent_types.append(0)
+      else:
+        j=misc.find("|",i)
+        if j<0:
+          j=len(misc)
+        if misc[i+3:i+4]=="B":
           ent_iobs.append(3)
         else:
           ent_iobs.append(1)
-        ent_types.append(vs.add(misc[5:i]))
-      else:
-        ent_iobs.append(2)
-        ent_types.append(0)
+        ent_types.append(vs.add(misc[i+5:j]))
+      bunsetu.append("I")
+      if misc.startswith("BunsetuBILabel="):
+        bunsetu[-1]=misc[15:16]
     doc=Doc(self.vocab,words=words,spaces=spaces)
     a=numpy.array(list(zip(lemmas,pos,tags,deps,heads,norms,ent_iobs,ent_types)),dtype="uint64")
     doc.from_array([LEMMA,POS,TAG,DEP,HEAD,NORM,ENT_IOB,ENT_TYPE],a)
     doc.is_tagged=True
     doc.is_parsed=True
+    doc.user_data["bunsetu_bi_labels"]=bunsetu
     return doc
   def ChamameWebAPI(self,sentence):
     import random,urllib.request,json
@@ -142,4 +148,13 @@ class SynChaTokenizer(object):
 
 def load(UniDic=None):
   return SynChaLanguage(UniDic)
+
+def bunsetu_spans(doc):
+  b=[i for i,j in enumerate(doc.user_data["bunsetu_bi_labels"]) if j=="B"]
+  b.append(len(doc))
+  return [Span(doc,i,j) for i,j in zip(b,b[1:])]
+
+def bunsetu_span(token):
+  b="".join(token.doc.user_data["bunsetu_bi_labels"])+"B"
+  return Span(token.doc,b.rindex("B",0,token.i+1),b.index("B",token.i+1))
 

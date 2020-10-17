@@ -1,1 +1,1 @@
-from .syncha import SynChaLanguage,SynChaTokenizer,load
+from .syncha import SynChaLanguage,SynChaTokenizer,load,bunsetu_spans,bunsetu_span

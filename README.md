@@ -43,6 +43,15 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 に   ADP   <══╝ ║     ║ ║ case(格表示)
 渡し VERB  ═╗═══╝═════╝═╝ ROOT(親)
 た   AUX   <╝             aux(動詞補助成分)
+>>> for b in spacy_syncha.bunsetu_spans(doc):
+...   for t in b.lefts:
+...     print(spacy_syncha.bunsetu_span(t),"->",b)
+...
+花子が -> 読んでいる
+読んでいる -> 本を
+太郎は -> 渡した
+本を -> 渡した
+次郎に -> 渡した
 ```
 
 `spacy_syncha.load(UniDic)` loads spaCy Language pipeline for SynCha-CaboCha-MeCab. Available `UniDic` options are:
