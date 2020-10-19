@@ -163,9 +163,19 @@ def load(UniDic=None):
   return SynChaLanguage(UniDic)
 
 def bunsetu_spans(doc):
-  b=[i for i,j in enumerate(doc.user_data["bunsetu_bi_labels"]) if j=="B"]
-  b.append(len(doc))
-  return [Span(doc,i,j) for i,j in zip(b,b[1:])]
+  if type(doc)==Doc:
+    b=[i for i,j in enumerate(doc.user_data["bunsetu_bi_labels"]) if j=="B"]
+    b.append(len(doc))
+    return [Span(doc,i,j) for i,j in zip(b,b[1:])]
+  elif type(doc)==Span:
+    b=doc[0].doc.user_data["bunsetu_bi_labels"]
+    s=[bunsetu_span(doc[0])] if b[doc[0].i]=="I" else []
+    for t in doc:
+      if b[t.i]=="B":
+        s.append(bunsetu_span(t))
+    return s
+  elif type(doc)==Token:
+    return [bunsetu_span(doc)]
 
 def bunsetu_span(token):
   b="".join(token.doc.user_data["bunsetu_bi_labels"])+"B"
