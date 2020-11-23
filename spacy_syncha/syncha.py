@@ -17,9 +17,15 @@ class SynChaLanguage(Language):
   max_length=10**6
   def __init__(self,UniDic):
     self.Defaults.lex_attr_getters[LANG]=lambda _text:"ja"
-    self.vocab=self.Defaults.create_vocab()
+    try:
+      self.vocab=self.Defaults.create_vocab()
+      self.pipeline=[]
+    except:
+      from spacy.vocab import create_vocab
+      self.vocab=create_vocab("ja",self.Defaults)
+      self._components=[]
+      self._disabled=set()
     self.tokenizer=SynChaTokenizer(self.vocab,UniDic)
-    self.pipeline=[]
     self._meta={
       "author":"Koichi Yasuoka",
       "description":"derived from SynCha-CaboCha-MeCab",
@@ -62,6 +68,7 @@ class SynChaTokenizer(object):
     lemmas=[]
     pos=[]
     tags=[]
+    morphs=[]
     heads=[]
     deps=[]
     spaces=[]
@@ -75,11 +82,12 @@ class SynChaTokenizer(object):
       s=t.split("\t")
       if len(s)!=10:
         continue
-      id,form,lemma,upos,xpos,dummy_feats,head,deprel,dummy_deps,misc=s
+      id,form,lemma,upos,xpos,feats,head,deprel,_,misc=s
       words.append(form)
       lemmas.append(vs.add(lemma))
       pos.append(vs.add(upos))
       tags.append(vs.add(xpos))
+      morphs.append(feats)
       if deprel=="root":
         heads.append(0)
         deps.append(r)
@@ -108,8 +116,13 @@ class SynChaTokenizer(object):
     doc=Doc(self.vocab,words=words,spaces=spaces)
     a=numpy.array(list(zip(lemmas,pos,tags,deps,heads,norms,ent_iobs,ent_types)),dtype="uint64")
     doc.from_array([LEMMA,POS,TAG,DEP,HEAD,NORM,ENT_IOB,ENT_TYPE],a)
-    doc.is_tagged=True
-    doc.is_parsed=True
+    try:
+      doc.is_tagged=True
+      doc.is_parsed=True
+    except:
+      for i,j in enumerate(morphs):
+        if j!="_" and j!="":
+          doc[i].set_morph(j)
     doc.user_data["bunsetu_bi_labels"]=bunsetu
     return doc
   def ChamameWebAPI(self,sentence):
