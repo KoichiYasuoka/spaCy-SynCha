@@ -6,7 +6,7 @@
 5	果て	果てる	AUX	動詞-非自立可能	_	4	aux	_	SpaceAfter=No|Translit=ハテ
 6	つ	つ	AUX	助動詞	_	4	aux	_	SpaceAfter=No|Translit=ツ
 
-# text = 中等室の卓のほとりはいと閑かにて熾熱燈の光の晴れがましきもやくなし、
+# text = 中等室の卓のほとりはいと閑かにて熾熱燈の光の晴れがましきもやくなし、
 1	中等	中等	NOUN	名詞-普通名詞-一般	_	2	compound	_	SpaceAfter=No|Translit=チュウトウ
 2	室	室	NOUN	接尾辞-名詞的-一般	_	4	nmod	_	SpaceAfter=No|Translit=シツ
 3	の	の	ADP	助詞-格助詞	_	2	case	_	SpaceAfter=No|Translit=ノ
@@ -23,7 +23,7 @@
 14	の	の	ADP	助詞-格助詞	_	13	case	_	SpaceAfter=No|Translit=ノ
 15	光	光	NOUN	名詞-普通名詞-一般	_	17	nsubj	_	SpaceAfter=No|Translit=ヒカリ
 16	の	の	ADP	助詞-格助詞	_	15	case	_	SpaceAfter=No|Translit=ノ
-17	晴れがましき	晴れがましい	ADJ	形容詞-一般	_	19	csubj	_	SpaceAfter=No|Translit=ハレガマシキ
+17	晴れがましき	晴れがましい	ADJ	形容詞-一般	_	19	csubj	_	SpaceAfter=No|Translit=ハレガマシキ
 18	も	も	ADP	助詞-係助詞	_	17	mark	_	SpaceAfter=No|Translit=モ
 19	やくなし	益無い	ADJ	形容詞-一般	_	0	root	_	SpaceAfter=No|Translit=ヤクナシ
 20	、	、	PUNCT	補助記号-読点	_	19	punct	_	SpaceAfter=No
