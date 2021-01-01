@@ -111,7 +111,7 @@ BEGIN{
     for(i=1;i<=n;i++){
       j=i-bhead[chunk[i]];
       if(j>0){
-        if(upos[i]=="VERB")
+        if(upos[i]~/^(VERB|ADJ)$/)
           upos[i]="AUX";
         else if(upos[i]=="NOUN")
           upos[i]="ADP";
