@@ -167,8 +167,8 @@ Results of [舞姬/雪國/荒野より-Benchmarks](https://colab.research.google
 
 |[雪國](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/yukiguni-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
-|UniDic="kinsei"|91.07|89.80|81.63|
 |UniDic="qkana" |87.50|81.63|77.55|
+|UniDic="kinsei"|85.71|83.33|75.00|
 |UniDic="kindai"|83.19|77.55|73.47|
 
 |[荒野より](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/koyayori-benchmark.tar.gz)|LAS|MLAS|BLEX|
