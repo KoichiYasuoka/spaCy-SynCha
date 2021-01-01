@@ -155,16 +155,22 @@ pip3.7 install spacy_syncha --no-build-isolation
 
 Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-SynCha/blob/master/spacy_syncha.ipynb).
 
-## Benchmark
+## Benchmarks
 
-Result of [舞姬-Benchmark](https://colab.research.google.com/github/KoichiYasuoka/spaCy-SynCha/blob/master/benchmark/maihime.ipynb)
+Results of [舞姬/荒野より-Benchmarks](https://colab.research.google.com/github/KoichiYasuoka/spaCy-SynCha/blob/master/benchmark.ipynb)
 
-|舞姬-Benchmark | LAS |MLAS |BLEX |
+|[舞姬](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/maihime-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
 |UniDic="kindai"|83.02|66.67|70.37|
 |UniDic="qkana" |81.13|66.67|70.37|
 |UniDic="kinsei"|72.22|57.14|57.14|
 
-## References
+|[荒野より](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/koyayori-benchmark.tar.gz)|LAS|MLAS|BLEX|
+|---------------|-----|-----|-----|
+|UniDic="kindai"|67.72|35.14|35.14|
+|UniDic="spoken"|63.49|32.43|32.43|
+|UniDic="gendai"|62.43|32.43|32.43|
+
+## Reference
 
 * 安岡孝一: [形態素解析部の付け替えによる近代日本語(旧字旧仮名)の係り受け解析](http://hdl.handle.net/2433/254677), 情報処理学会研究報告, Vol.2020-CH-124「人文科学とコンピュータ」, No.3 (2020年9月5日), pp.1-8.
