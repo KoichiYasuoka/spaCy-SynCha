@@ -167,9 +167,9 @@ Results of [舞姬/荒野より-Benchmarks](https://colab.research.google.com/gi
 
 |[荒野より](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/koyayori-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
-|UniDic="kindai"|67.72|35.14|35.14|
-|UniDic="spoken"|63.49|32.43|32.43|
-|UniDic="gendai"|62.43|32.43|32.43|
+|UniDic="kindai"|67.72|35.14|45.95|
+|UniDic="spoken"|63.49|32.43|43.24|
+|UniDic="gendai"|62.43|32.43|43.24|
 
 ## Reference
 
