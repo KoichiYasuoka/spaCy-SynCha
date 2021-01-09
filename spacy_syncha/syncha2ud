@@ -136,7 +136,7 @@ BEGIN{
           deprel[i]="case";
       }
       else if(upos[i]=="AUX"){
-        if(upos[head[i]]~/^(VERB|ADJ)$/)
+        if(upos[head[i]]~/^(VERB|ADJ|ADV)$/)
           deprel[i]="aux";
         else{
           deprel[i]="cop";
