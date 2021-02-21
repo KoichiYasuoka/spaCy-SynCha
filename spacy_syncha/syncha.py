@@ -127,8 +127,8 @@ class SynChaTokenizer(object):
     return doc
   def ChamameWebAPI(self,sentence):
     import random,urllib.request,json
-    f={ self.dictkey:"UniDic-"+self.UniDic,
-        "st":sentence+"\n\n",
+    f={ self.dictkey:"unidic-spoken" if self.UniDic=="spoken" else self.UniDic,
+        "st":sentence+"\n",
         "f1":"1",
         "f2":"1",
         "f3":"1",
@@ -142,7 +142,7 @@ class SynChaTokenizer(object):
     b="".join(random.choice("abcdefghijklmnopqrstuvwxyz0123456789") for i in range(10))
     d="\n".join("--"+b+"\nContent-Disposition:form-data;name="+k+"\n\n"+v for k,v in f.items())+"\n--"+b+"--\n"
     h={ "Content-Type":"multipart/form-data;charset=utf-8;boundary="+b }
-    u=urllib.request.Request("https://unidic.ninjal.ac.jp/chamame/chamamebin/webchamame.php",d.encode(),h)
+    u=urllib.request.Request("https://chamame.ninjal.ac.jp/chamamebin/webchamame.php",d.encode(),h)
     with urllib.request.urlopen(u) as r:
       q=r.read()
     return q.decode("utf-8").replace("\r","")
