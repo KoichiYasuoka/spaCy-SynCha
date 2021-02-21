@@ -6,7 +6,7 @@ URL="https://github.com/KoichiYasuoka/spaCy-SynCha"
 
 setuptools.setup(
   name="spacy_syncha",
-  version="0.8.1",
+  version="0.8.2",
   description="SynCha-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
@@ -16,9 +16,9 @@ setuptools.setup(
   license="MIT",
   keywords="spacy nlp",
   packages=setuptools.find_packages(),
-  install_requires=["spacy>=2.2.2","deplacy>=1.8.8"],
+  install_requires=["spacy>=2.2.2","deplacy>=1.9.1"],
   python_requires=">=3.6",
-  package_data={"spacy_syncha":["./syncha2ud","./unidic2ipadic"]},
+  package_data={"spacy_syncha":["syncha2ud","unidic2ipadic"]},
   data_files=[("bin",["spacy_syncha/syncha2ud","spacy_syncha/unidic2ipadic"])],
   classifiers=[
     "License :: OSI Approved :: MIT License",
