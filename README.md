@@ -161,7 +161,7 @@ Results of [舞姬/雪國/荒野より-Benchmarks](https://colab.research.google
 
 |[舞姬](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/maihime-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
-|UniDic="kindai"|83.02|66.67|70.37|
+|UniDic="kindai"|84.91|70.37|74.07|
 |UniDic="qkana" |81.13|66.67|70.37|
 |UniDic="kinsei"|72.22|57.14|57.14|
 
@@ -173,7 +173,7 @@ Results of [舞姬/雪國/荒野より-Benchmarks](https://colab.research.google
 
 |[荒野より](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/koyayori-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
-|UniDic="kindai"|68.06|35.14|45.95|
+|UniDic="kindai"|67.02|32.43|43.24|
 |UniDic="qkana" |63.87|32.88|43.84|
 |UniDic="kinsei"|63.54|29.73|40.54|
 
