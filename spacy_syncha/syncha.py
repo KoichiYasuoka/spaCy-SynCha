@@ -48,6 +48,8 @@ class SynChaTokenizer(object):
     if UniDic:
       d={ "gendai":"dic1", "spoken":"dic2", "qkana":"dic3", "kindai":"dic4", "kinsei":"dic5", "kyogen":"dic6", "wakan":"dic7", "wabun":"dic8", "manyo":"dic9" }
       self.dictkey=d[UniDic]
+      d={ "gendai":"gendai", "spoken":"unidic-spoken", "qkana":"60b_qkana", "kindai":"60a_kindai-bungo", "kinsei":"50c_kinsei-edo", "kyogen":"40_chusei-kougo", "wakan":"30_chusei-bungo", "wabun":"20_chuko", "manyo":"10_jodai" }
+      self.dictvalue=d[UniDic]
       self.model=self.ChamameWeb2SynChaUD
       try:
         import unidic2ud
@@ -127,7 +129,7 @@ class SynChaTokenizer(object):
     return doc
   def ChamameWebAPI(self,sentence):
     import random,urllib.request,json
-    f={ self.dictkey:"unidic-spoken" if self.UniDic=="spoken" else self.UniDic,
+    f={ self.dictkey:self.dictvalue,
         "st":sentence+"\n",
         "f1":"1",
         "f2":"1",
