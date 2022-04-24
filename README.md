@@ -81,6 +81,7 @@ First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
 ```sh
 sudo apt update
 sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make curl lp-solve
+pip3 install gdown --user
 cd /tmp
 curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
 cd CRF++-0.58
@@ -92,8 +93,8 @@ Second, install [CaboCha](https://taku910.github.io/cabocha/):
 
 ```sh
 cd /tmp
-curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU' > /dev/null
-curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` | tar xjf -
+gdown 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU'
+tar xjf cabocha-0.69.tar.bz2
 cd cabocha-0.69
 ./configure --prefix=/usr --libdir=`mecab-config --libs-only-L` --with-charset=UTF8
 make && sudo make install
@@ -103,7 +104,7 @@ Third, install [SynCha](https://sites.google.com/site/ryuiida/syncha):
 
 ```sh
 cd /tmp
-curl -L 'https://drive.google.com/uc?export=download&id=0B4wOZ_esMVcMazQ0eGdtMnBCaWs' | tar xzf -
+curl -L https://raw.githubusercontent.com/KoichiYasuoka/spaCy-SynCha/master/backup/syncha-0.3.1.1.tgz | tar xzf -
 sudo mkdir -p /usr/local/bin
 sudo mv syncha-0.3.1.1 /usr/local/syncha
 ( echo '#! /bin/sh' ; echo 'exec /usr/local/syncha/syncha "$@"' ) > syncha
@@ -131,6 +132,7 @@ First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
 ```sh
 sudo yum update
 sudo yum install python3-pip python3-devel gcc-c++ make curl bzip2 lpsolve epel-release
+pip3 install gdown --user
 sudo rpm -ivh https://packages.groonga.org/centos/latest/groonga-release-latest.noarch.rpm
 sudo yum install mecab mecab-devel mecab-ipadic
 cd /tmp
