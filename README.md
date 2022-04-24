@@ -57,15 +57,15 @@ SynCha-CaboCha-MeCab wrapper for spaCy
 
 `spacy_syncha.load(UniDic)` loads spaCy Language pipeline for SynCha-CaboCha-MeCab. Available `UniDic` options are:
 
-* `UniDic="gendai"`: Use [現代書き言葉UniDic](https://ccd.ninjal.ac.jp/unidic/download#unidic_bccwj).
-* `UniDic="spoken"`: Use [現代話し言葉UniDic](https://ccd.ninjal.ac.jp/unidic/download#unidic_csj).
-* `UniDic="qkana"`: Use [旧仮名口語UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_qkana).
-* `UniDic="kindai"`: Use [近代文語UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_kindai).
-* `UniDic="kinsei"`: Use [近世口語（洒落本）UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_kinsei).
-* `UniDic="kyogen"`: Use [中世口語（狂言）UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_kyogen).
-* `UniDic="wakan"`: Use [中世文語（説話・随筆）UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_wakan).
-* `UniDic="wabun"`: Use [中古和文UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_wabun).
-* `UniDic="manyo"`: Use [上代（万葉集）UniDic](https://ccd.ninjal.ac.jp/unidic/download_all#unidic_manyo).
+* `UniDic="gendai"`: Use [現代書き言葉UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_bccwj).
+* `UniDic="spoken"`: Use [現代話し言葉UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_csj).
+* `UniDic="qkana"`: Use [旧仮名口語UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_qkana).
+* `UniDic="kindai"`: Use [近代文語UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_kindai).
+* `UniDic="kinsei"`: Use [近世江戸口語UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_kinsei-edo).
+* `UniDic="kyogen"`: Use [中世口語UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_chusei-kougo).
+* `UniDic="wakan"`: Use [中世文語UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_chusei-bungo).
+* `UniDic="wabun"`: Use [中古和文UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_wabun).
+* `UniDic="manyo"`: Use [上代語UniDic](https://clrd.ninjal.ac.jp/unidic/download_all.html#unidic_jodai).
 * `UniDic=None`: Use IPADic (default).
 
 You can simply use `syncha2ud` on the command line to get [Universal Dependencies](https://universaldependencies.org/format.html):
