@@ -46,9 +46,9 @@ class SynChaTokenizer(object):
     import subprocess
     self.UniDic=UniDic
     if UniDic:
-      d={ "gendai":"dic1", "spoken":"dic2", "qkana":"dic3", "kindai":"dic4", "kinsei":"dic5", "kyogen":"dic6", "wakan":"dic7", "wabun":"dic8", "manyo":"dic9" }
+      d={ "gendai":"dic1", "spoken":"dic2", "novel":"dic11", "qkana":"dic3", "kindai":"dic4", "kinsei":"dic5", "kyogen":"dic6", "wakan":"dic7", "wabun":"dic8", "manyo":"dic9" }
       self.dictkey=d[UniDic]
-      d={ "gendai":"gendai", "spoken":"unidic-spoken", "qkana":"60b_qkana", "kindai":"60a_kindai-bungo", "kinsei":"50c_kinsei-edo", "kyogen":"40_chusei-kougo", "wakan":"30_chusei-bungo", "wabun":"20_chuko", "manyo":"10_jodai" }
+      d={ "gendai":"gendai", "spoken":"unidic-spoken", "novel":"65_novel", "qkana":"60b_qkana", "kindai":"60a_kindai-bungo", "kinsei":"50c_kinsei-edo", "kyogen":"40_chusei-kougo", "wakan":"30_chusei-bungo", "wabun":"20_chuko", "manyo":"10_jodai" }
       self.dictvalue=d[UniDic]
       self.model=self.ChamameWeb2SynChaUD
       try:
